@@ -30,8 +30,8 @@ const performAnalysis = () => {
         displayOutput("Введите корректное целое число больше 0.");
         return;
     }
-    const recursiveTime = measureTime(fibonacciRecursive, n).toFixed(5);
-    const memoizedTime = measureTime(fibonacciMemoized, n).toFixed(5);
+    const recursiveTime = measureTime(fibonacciRecursive, n);
+    const memoizedTime = measureTime(fibonacciMemoized, n);
     const outputMessage = `
       Результаты для n = ${n}:<br>
       Рекурсивный метод: ${recursiveTime} мс<br>
