@@ -7,14 +7,23 @@ function fibonacciRecursive(n: number): number {
 // Оптимизированная реализация получения числа Фибоначчи
 function fibonacciMemoized(n: number): number {
   const memo = new Map<number, number>();
-  const fib = (num: number): number => {
-    if (memo.has(num)) return memo.get(num)!;
-    if (num <= 1) return num;
-    const result = fib(num - 1) + fib(num - 2);
+
+  const getFibonacci = (num: number): number => {
+    if (memo.has(num)) {
+      return memo.get(num)!;
+    }
+
+    if (num <= 1) {
+      return num;
+    }
+
+    const result = getFibonacci(num - 1) + getFibonacci(num - 2);
     memo.set(num, result);
+
     return result;
   };
-  return fib(n);
+
+  return getFibonacci(n);
 }
 
 // Замер времени выполнения
